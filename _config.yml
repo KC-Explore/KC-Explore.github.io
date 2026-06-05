@@ -19,6 +19,10 @@ minima:
 
 # Reading-path order lives in index.md; posts are dated for sequencing.
 permalink: /:title/
+# Posts carry staggered publish dates for ordering/SEO; several are dated ahead
+# of today. Without this, Jekyll skips future-dated posts and every {% post_url %}
+# link to them fails the build.
+future: true
 markdown: kramdown
 highlighter: rouge
 
