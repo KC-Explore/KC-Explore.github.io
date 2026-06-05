@@ -1,0 +1,75 @@
+---
+# Light custom skin layered on top of minima so the site doesn't read as a
+# default template. Front matter (the two ---) is required for Jekyll to process SCSS.
+---
+
+@import "minima";
+
+:root {
+  --accent: #5b9cff;
+  --accent-dim: #2f6bd8;
+  --ink: #e7e9ee;
+  --muted: #9aa3b2;
+  --bg: #14161c;
+  --panel: #1b1e27;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.site-title,
+.site-title:visited {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink) !important;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-dim); }
+
+h1, h2, h3 { letter-spacing: -0.015em; }
+h1 { border: 0; }
+h2 {
+  margin-top: 2.2rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* "How I run mine" sidebar callout */
+.sidebar-note {
+  border-left: 3px solid var(--accent);
+  background: var(--panel);
+  padding: 0.9rem 1.1rem;
+  margin: 1.6rem 0;
+  border-radius: 0 6px 6px 0;
+}
+.sidebar-note > p:first-child { margin-top: 0; }
+.sidebar-note strong:first-child { color: var(--accent); }
+
+/* "What you'll need / what it costs" callout */
+.callout {
+  background: rgba(91, 156, 255, 0.07);
+  border: 1px solid rgba(91, 156, 255, 0.2);
+  padding: 0.9rem 1.1rem;
+  margin: 1.6rem 0;
+  border-radius: 6px;
+}
+
+blockquote {
+  color: var(--muted);
+  border-left-color: var(--accent-dim);
+}
+
+code, pre {
+  background: #0f1117;
+  border-radius: 6px;
+}
+
+table { width: 100%; }
+th { background: var(--panel); }
+td, th { border-color: rgba(255, 255, 255, 0.08); }
+
+.post-meta { color: var(--muted); }

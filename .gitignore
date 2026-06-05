@@ -1,0 +1,22 @@
+# Generated Word review artifacts — Markdown in _posts/ is the source of truth
+docx/
+
+# Jekyll build output & local tooling
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+
+# Python (docx builder) local env
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

@@ -1,0 +1,37 @@
+title: Start Your AI Homelab
+description: >-
+  A practical, no-hype field guide to building your own AI homelab — from a
+  single laptop to a hardened always-on box. Subscriptions vs APIs vs local
+  models, the vocabulary that actually matters, getting a VM ready, locking it
+  down, and the projects worth your first weekend.
+author: MrK
+url: "https://kc-explore.github.io"
+baseurl: ""
+lang: en
+
+# GitHub Pages build settings.
+# `minima` is the GH Pages default and reads as generic — we override its look
+# with assets/css/style.scss (a light custom skin) so the site doesn't feel
+# template-stamped. Swap `theme:` for a remote_theme later if desired.
+theme: minima
+minima:
+  skin: dark
+
+# Reading-path order lives in index.md; posts are dated for sequencing.
+permalink: /:title/
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Keep generated review artifacts and local cruft out of the build.
+exclude:
+  - docx/
+  - build_docx.py
+  - requirements-docx.txt
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
