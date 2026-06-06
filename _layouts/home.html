@@ -1,0 +1,40 @@
+---
+layout: default
+body_class: page-home
+---
+{% assign ordered = site.posts | sort: 'part' %}
+<section class="hero">
+  <p class="kicker reveal" style="--d: 0">// A field guide in {{ ordered | size }} parts</p>
+  <h1 class="hero__title reveal" style="--d: 1">{{ site.title }}</h1>
+  <div class="hero__lede reveal" style="--d: 2">
+    {{ content }}
+  </div>
+  {% assign first = ordered | first %}
+  <a class="cta reveal" style="--d: 3" href="{{ first.url | relative_url }}">
+    <span>Begin the series</span>
+    <span class="cta__arrow" aria-hidden="true">→</span>
+  </a>
+</section>
+
+<section class="series" id="series">
+  <header class="series__head">
+    <span class="series__rule" aria-hidden="true"></span>
+    <h2>The reading path</h2>
+    <span class="series__hint">read in order, or jump around</span>
+  </header>
+
+  <ol class="index">
+    {% for post in ordered %}
+    <li class="entry" style="--i: {{ forloop.index0 }}">
+      <a class="entry__link" href="{{ post.url | relative_url }}">
+        <span class="entry__num" aria-hidden="true">0{{ post.part }}</span>
+        <span class="entry__body">
+          <span class="entry__title">{{ post.title }}</span>
+          <span class="entry__desc">{{ post.description }}</span>
+        </span>
+        <span class="entry__arrow" aria-hidden="true">→</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

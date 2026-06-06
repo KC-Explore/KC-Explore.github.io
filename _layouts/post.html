@@ -1,0 +1,62 @@
+---
+layout: default
+body_class: page-post
+---
+{% assign ordered = site.posts | sort: 'part' %}
+{% assign curr = 0 %}
+{% for p in ordered %}
+  {% if p.url == page.url %}{% assign curr = forloop.index0 %}{% endif %}
+{% endfor %}
+{% assign previdx = curr | minus: 1 %}
+{% assign nextidx = curr | plus: 1 %}
+{% assign total = ordered | size %}
+{% assign words = content | number_of_words %}
+{% assign minutes = words | divided_by: 200 | plus: 1 %}
+
+<article class="post">
+  <header class="post__header">
+    <p class="kicker">{{ page.series }} · Part 0{{ page.part }}</p>
+    <h1 class="post__title">{{ page.title }}</h1>
+    {% if page.description %}<p class="post__lede">{{ page.description }}</p>{% endif %}
+    <div class="post__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span class="dot" aria-hidden="true">/</span>
+      <span>{{ minutes }} min read</span>
+      <span class="dot" aria-hidden="true">/</span>
+      <span class="post__progress" aria-hidden="true">0{{ page.part }}&thinsp;—&thinsp;0{{ total | minus: 1 }}</span>
+    </div>
+    <span class="post__rule" aria-hidden="true"></span>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <nav class="post__nav" aria-label="Series navigation">
+    {% if curr > 0 %}
+      {% assign prev = ordered[previdx] %}
+      <a class="pnav pnav--prev" href="{{ prev.url | relative_url }}">
+        <span class="pnav__label">← Previously</span>
+        <span class="pnav__title">{{ prev.title }}</span>
+      </a>
+    {% else %}
+      <a class="pnav pnav--prev" href="{{ '/' | relative_url }}">
+        <span class="pnav__label">← Home</span>
+        <span class="pnav__title">The reading path</span>
+      </a>
+    {% endif %}
+
+    {% if nextidx < total %}
+      {% assign next = ordered[nextidx] %}
+      <a class="pnav pnav--next" href="{{ next.url | relative_url }}">
+        <span class="pnav__label">Next up →</span>
+        <span class="pnav__title">{{ next.title }}</span>
+      </a>
+    {% else %}
+      <a class="pnav pnav--next" href="{{ '/#series' | relative_url }}">
+        <span class="pnav__label">Wrap-up →</span>
+        <span class="pnav__title">Back to the full series</span>
+      </a>
+    {% endif %}
+  </nav>
+</article>

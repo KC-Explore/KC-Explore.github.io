@@ -1,0 +1,15 @@
+---
+layout: default
+permalink: /404.html
+body_class: page-404
+title: 404 — command not found
+---
+<section class="notfound">
+  <p class="kicker">HTTP 404</p>
+  <pre class="notfound__term" aria-hidden="true"><span class="notfound__prompt">~/ai-homelab $</span> cd {{ page.url }}
+bash: cd: no such file or directory
+<span class="notfound__prompt">~/ai-homelab $</span> <span class="notfound__cursor"></span></pre>
+  <h1 class="notfound__title">This page never booted.</h1>
+  <p class="notfound__text">The path you asked for isn't on this box. Maybe it was snapshotted away.</p>
+  <a class="cta" href="{{ '/' | relative_url }}"><span>Back to the series</span><span class="cta__arrow" aria-hidden="true">→</span></a>
+</section>

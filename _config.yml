@@ -9,15 +9,7 @@ url: "https://kc-explore.github.io"
 baseurl: ""
 lang: en
 
-# GitHub Pages build settings.
-# `minima` is the GH Pages default and reads as generic — we override its look
-# with assets/css/style.scss (a light custom skin) so the site doesn't feel
-# template-stamped. Swap `theme:` for a remote_theme later if desired.
-theme: minima
-minima:
-  skin: dark
-
-# Reading-path order lives in index.md; posts are dated for sequencing.
+# Fully custom design — no theme gem. All layouts/includes/styles are in-repo.
 permalink: /:title/
 # Posts carry staggered publish dates for ordering/SEO; several are dated ahead
 # of today. Without this, Jekyll skips future-dated posts and every {% post_url %}
@@ -26,11 +18,13 @@ future: true
 markdown: kramdown
 highlighter: rouge
 
+sass:
+  style: compressed
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Keep generated review artifacts and local cruft out of the build.
 exclude:
   - docx/
   - build_docx.py

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ai-homelab">
+  <rect width="32" height="32" rx="7" fill="#0c0c0e"/>
+  <rect x="6.5" y="7" width="19" height="7" rx="2.2" fill="none" stroke="#e6a85c" stroke-width="1.7"/>
+  <rect x="6.5" y="18" width="19" height="7" rx="2.2" fill="none" stroke="#e6a85c" stroke-width="1.7"/>
+  <circle cx="10" cy="10.5" r="1.15" fill="#e6a85c"/>
+  <circle cx="10" cy="21.5" r="1.15" fill="#6fdca0"/>
+</svg>
