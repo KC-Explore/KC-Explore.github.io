@@ -1,11 +1,16 @@
 source "https://rubygems.org"
 
-# GitHub Pages builds Jekyll server-side; this Gemfile is only needed if you
-# want to preview the site locally with `bundle exec jekyll serve`.
-gem "github-pages", group: :jekyll_plugins
-gem "jekyll-feed"
-gem "jekyll-seo-tag"
+# Modern, pinned toolchain — built by GitHub Actions (.github/workflows/pages.yml),
+# NOT the legacy github-pages gemset. Jekyll 4 ships Dart Sass, so no Ruby-Sass quirks.
+gem "jekyll", "~> 4.3"
 
-# Windows / JRuby helpers (harmless elsewhere)
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.17"
+  gem "jekyll-seo-tag", "~> 2.8"
+end
+
+# Pulled from Ruby stdlib in recent versions; declare explicitly for CI.
+gem "webrick", "~> 1.9"
+
+# Windows / JRuby timezone data (harmless elsewhere).
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "wdm", "~> 0.1.1", platforms: [:mingw, :mswin, :x64_mingw]
