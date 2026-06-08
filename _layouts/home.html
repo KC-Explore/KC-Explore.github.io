@@ -4,54 +4,25 @@ body_class: page-home
 ---
 {% assign ordered = site.posts | sort: 'part' %}
 
-<section class="intro" id="about">
-  <div class="intro__main">
-    <p class="kicker reveal" style="--d: 0">// field notes — a personal blog</p>
-    <h1 class="intro__title reveal" style="--d: 1">
-      Hi, I'm MrK. I build, break, and write about <em>self-hosted systems</em>.
-    </h1>
-    <div class="intro__bio reveal" style="--d: 2">
-      {{ content }}
-    </div>
-    <div class="intro__actions reveal" style="--d: 4">
-      <a class="cta" href="#writing">
-        <span>Read the writing</span>
-        <span class="cta__arrow" aria-hidden="true">↓</span>
-      </a>
-      <a class="cta cta--ghost" href="https://github.com/KC-Explore/KC-Explore.github.io" rel="noopener">
-        <span>GitHub</span>
-        <span class="cta__arrow" aria-hidden="true">↗</span>
-      </a>
-    </div>
+<section class="lede" id="about">
+  <p class="kicker reveal" style="--d: 0">Field Notes — a personal blog</p>
+  <h1 class="lede__title reveal" style="--d: 1">
+    Building, breaking, and writing about <em>self-hosted systems</em>.
+  </h1>
+  <div class="lede__intro reveal" style="--d: 2">
+    {{ content }}
   </div>
-
-  <aside class="whoami reveal" style="--d: 3" aria-label="About me, as a terminal session">
-    <div class="whoami__bar" aria-hidden="true">
-      <span class="whoami__dots"></span>
-      <span class="whoami__path">mrk@homelab: ~</span>
-    </div>
-    <pre class="whoami__body"><span class="p">~$</span> whoami
-mrk · cybersecurity engineer
-
-<span class="p">~$</span> cat ~/.interests
-<span class="o">self-hosted-ai  homelab  automation</span>
-<span class="o">threat-modelling  hardening  trading</span>
-
-<span class="p">~$</span> ls ~/lab
-hypervisor/  vms/  containers/  models/
-
-<span class="p">~$</span> uptime
-building since 2024 · still curious
-
-<span class="p">~$</span> <span class="c">█</span></pre>
-  </aside>
+  <ul class="lede__facts reveal" style="--d: 3">
+    <li>Cybersecurity engineer</li>
+    <li>London, Ontario</li>
+    <li>Homelab since 2024</li>
+  </ul>
 </section>
 
 <section class="writing" id="writing">
   <header class="writing__head">
-    <span class="writing__rule" aria-hidden="true"></span>
     <h2>Writing</h2>
-    <span class="writing__hint">{{ ordered | size }} posts · the AI homelab series, in order</span>
+    <span class="writing__hint">The AI homelab series · {{ ordered | size }} parts, in order</span>
   </header>
 
   <ol class="feed">
@@ -60,16 +31,16 @@ building since 2024 · still curious
     {% assign minutes = words | divided_by: 200 | plus: 1 %}
     <li class="feed__item" style="--i: {{ forloop.index0 }}">
       <a class="feed__link" href="{{ post.url | relative_url }}">
-        <div class="feed__meta">
+        <span class="feed__num" aria-hidden="true">{{ post.part | prepend: '0' }}</span>
+        <span class="feed__body">
+          <span class="feed__title">{{ post.title }}</span>
+          <span class="feed__desc">{{ post.description }}</span>
+        </span>
+        <span class="feed__meta">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-          <span class="dot" aria-hidden="true">/</span>
-          <span class="feed__tag">Part 0{{ post.part }}</span>
-          <span class="dot" aria-hidden="true">/</span>
-          <span>{{ minutes }} min read</span>
-        </div>
-        <h3 class="feed__title">{{ post.title }}</h3>
-        <p class="feed__desc">{{ post.description }}</p>
-        <span class="feed__more" aria-hidden="true">Read <span class="feed__arrow">→</span></span>
+          <span class="feed__mins">{{ minutes }} min read</span>
+        </span>
+        <span class="feed__arrow" aria-hidden="true">→</span>
       </a>
     </li>
     {% endfor %}
