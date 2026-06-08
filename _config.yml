@@ -1,9 +1,8 @@
-title: Start Your AI Homelab
+title: MrK — Field Notes
 description: >-
-  A practical, no-hype field guide to building your own AI homelab — from a
-  single laptop to a hardened always-on box. Subscriptions vs APIs vs local
-  models, the vocabulary that actually matters, getting a VM ready, locking it
-  down, and the projects worth your first weekend.
+  A personal blog by MrK — a cybersecurity engineer writing about self-hosted
+  AI, homelabs, automation, and hardening systems from the hypervisor up.
+  No hype, no affiliate links. Just field notes from the build.
 author: MrK
 url: "https://kc-explore.github.io"
 baseurl: ""

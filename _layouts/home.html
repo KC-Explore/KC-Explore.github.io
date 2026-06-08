@@ -3,36 +3,73 @@ layout: default
 body_class: page-home
 ---
 {% assign ordered = site.posts | sort: 'part' %}
-<section class="hero">
-  <p class="kicker reveal" style="--d: 0">// A field guide in {{ ordered | size }} parts</p>
-  <h1 class="hero__title reveal" style="--d: 1">{{ site.title }}</h1>
-  <div class="hero__lede reveal" style="--d: 2">
-    {{ content }}
+
+<section class="intro" id="about">
+  <div class="intro__main">
+    <p class="kicker reveal" style="--d: 0">// field notes — a personal blog</p>
+    <h1 class="intro__title reveal" style="--d: 1">
+      Hi, I'm MrK. I build, break, and write about <em>self-hosted systems</em>.
+    </h1>
+    <div class="intro__bio reveal" style="--d: 2">
+      {{ content }}
+    </div>
+    <div class="intro__actions reveal" style="--d: 4">
+      <a class="cta" href="#writing">
+        <span>Read the writing</span>
+        <span class="cta__arrow" aria-hidden="true">↓</span>
+      </a>
+      <a class="cta cta--ghost" href="https://github.com/KC-Explore/KC-Explore.github.io" rel="noopener">
+        <span>GitHub</span>
+        <span class="cta__arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
   </div>
-  {% assign first = ordered | first %}
-  <a class="cta reveal" style="--d: 3" href="{{ first.url | relative_url }}">
-    <span>Begin the series</span>
-    <span class="cta__arrow" aria-hidden="true">→</span>
-  </a>
+
+  <aside class="whoami reveal" style="--d: 3" aria-label="About me, as a terminal session">
+    <div class="whoami__bar" aria-hidden="true">
+      <span class="whoami__dots"></span>
+      <span class="whoami__path">mrk@homelab: ~</span>
+    </div>
+    <pre class="whoami__body"><span class="p">~$</span> whoami
+mrk · cybersecurity engineer
+
+<span class="p">~$</span> cat ~/.interests
+<span class="o">self-hosted-ai  homelab  automation</span>
+<span class="o">threat-modelling  hardening  trading</span>
+
+<span class="p">~$</span> ls ~/lab
+hypervisor/  vms/  containers/  models/
+
+<span class="p">~$</span> uptime
+building since 2024 · still curious
+
+<span class="p">~$</span> <span class="c">█</span></pre>
+  </aside>
 </section>
 
-<section class="series" id="series">
-  <header class="series__head">
-    <span class="series__rule" aria-hidden="true"></span>
-    <h2>The reading path</h2>
-    <span class="series__hint">read in order, or jump around</span>
+<section class="writing" id="writing">
+  <header class="writing__head">
+    <span class="writing__rule" aria-hidden="true"></span>
+    <h2>Writing</h2>
+    <span class="writing__hint">{{ ordered | size }} posts · the AI homelab series, in order</span>
   </header>
 
-  <ol class="index">
+  <ol class="feed">
     {% for post in ordered %}
-    <li class="entry" style="--i: {{ forloop.index0 }}">
-      <a class="entry__link" href="{{ post.url | relative_url }}">
-        <span class="entry__num" aria-hidden="true">0{{ post.part }}</span>
-        <span class="entry__body">
-          <span class="entry__title">{{ post.title }}</span>
-          <span class="entry__desc">{{ post.description }}</span>
-        </span>
-        <span class="entry__arrow" aria-hidden="true">→</span>
+    {% assign words = post.content | number_of_words %}
+    {% assign minutes = words | divided_by: 200 | plus: 1 %}
+    <li class="feed__item" style="--i: {{ forloop.index0 }}">
+      <a class="feed__link" href="{{ post.url | relative_url }}">
+        <div class="feed__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <span class="dot" aria-hidden="true">/</span>
+          <span class="feed__tag">Part 0{{ post.part }}</span>
+          <span class="dot" aria-hidden="true">/</span>
+          <span>{{ minutes }} min read</span>
+        </div>
+        <h3 class="feed__title">{{ post.title }}</h3>
+        <p class="feed__desc">{{ post.description }}</p>
+        <span class="feed__more" aria-hidden="true">Read <span class="feed__arrow">→</span></span>
       </a>
     </li>
     {% endfor %}
