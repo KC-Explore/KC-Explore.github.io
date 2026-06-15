@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Threat Intelligence That Isn't Just a Feed"
-date: 2026-08-07
+date: 2026-05-30
 series: "Blue Team Homelab"
 part: 3
 description: "Intelligence is a process, not a list of bad IPs. The intel lifecycle, strategic/operational/tactical levels, IOCs vs TTPs, and running MISP or OpenCTI at home."

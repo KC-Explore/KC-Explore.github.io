@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Securing the Box: SSH & the Physical-Access Truth"
-date: 2026-07-03
+date: 2026-04-25
 series: "Start Your AI Homelab"
 part: 4
 description: "Harden SSH the right way — then understand why physical access is the security boundary that actually matters for a homelab."

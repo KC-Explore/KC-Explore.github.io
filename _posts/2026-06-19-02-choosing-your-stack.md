@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Choosing Your Stack: Subscriptions, APIs & Local Models"
-date: 2026-06-19
+date: 2026-04-11
 series: "Start Your AI Homelab"
 part: 2
 description: "The three ways to get AI into your homelab, honest trade-offs, the model landscape, and what I'd pick at each budget."

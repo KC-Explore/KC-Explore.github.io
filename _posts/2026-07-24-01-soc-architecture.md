@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a Home SOC: The Architecture"
-date: 2026-07-24
+date: 2026-05-16
 series: "Blue Team Homelab"
 part: 1
 description: "The data pipeline behind every SOC — log sources, collection, normalization, a SIEM, detections, and alerting — and how to stand up a real one on a single homelab box."

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Detection Engineering: Detections as Code"
-date: 2026-08-14
+date: 2026-06-06
 series: "Blue Team Homelab"
 part: 4
 description: "Treat detections like software — version-controlled, tested, and tuned. Sigma rules, the detection lifecycle, the ADS framework, and validating with Atomic Red Team."

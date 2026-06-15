@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Threat Hunting: Hypotheses, Not Alerts"
-date: 2026-07-31
+date: 2026-05-23
 series: "Blue Team Homelab"
 part: 2
 description: "Hunting is what you do when nothing alerted. The PEAK loop, the Pyramid of Pain, and using MITRE ATT&CK to turn a hunch into a repeatable hunt."

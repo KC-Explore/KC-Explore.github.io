@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Getting the VM Ready"
-date: 2026-06-26
+date: 2026-04-18
 series: "Start Your AI Homelab"
 part: 3
 description: "Where your homelab actually lives: choosing a hypervisor, provisioning a base Linux VM, sizing it, snapshots, and first-boot setup."

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Starter Projects Worth Your First Weekend"
-date: 2026-07-10
+date: 2026-05-02
 series: "Start Your AI Homelab"
 part: 5
 description: "Five AI-homelab projects graded from easy to ambitious — what each one teaches you and why it's a good rung to climb."

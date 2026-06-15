@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Automation & SOAR: Closing the Loop"
-date: 2026-08-21
+date: 2026-06-13
 series: "Blue Team Homelab"
 part: 5
 description: "The boring 80% of response is automatable. SOAR concepts, playbooks, and enrichment-and-triage automation at home with Shuffle, n8n, and TheHive — with guardrails."

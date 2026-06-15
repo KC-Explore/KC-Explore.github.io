@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Why Run a SOC at Home"
-date: 2026-07-17
+date: 2026-05-09
 series: "Blue Team Homelab"
 part: 0
 description: "What a security operations practice actually is, why you'd build one in a homelab, and the five disciplines this series walks through."

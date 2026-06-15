@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI Foundations Without the Hype"
-date: 2026-06-12
+date: 2026-04-04
 series: "Start Your AI Homelab"
 part: 1
 description: "Models, tokens, context windows, and agents — the vocabulary that actually matters, in plain English."
