@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" font-family="'IBM Plex Mono','SFMono-Regular',ui-monospace,monospace" role="img" aria-label="Detection as Code pipeline: six-stage serpentine flow from idea through Sigma rule authoring, peer review, CI testing, validation, and promotion with an iterate feedback loop">
+  <defs>
+    <marker id="bt-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b04a2c"/>
+    </marker>
+  </defs>
+
+  <!-- Title chip -->
+  <text x="40" y="34" fill="#b04a2c" font-size="12.5" font-weight="600" letter-spacing="2.4">DETECTION AS CODE</text>
+  <line x1="40" y1="46" x2="840" y2="46" stroke="#e0d4bf" stroke-width="1.5"/>
+
+  <!-- Row 1 -->
+
+  <!-- C1: 01 · Idea (x=40, y=72) -->
+  <rect x="40" y="72" width="232" height="80" rx="10" fill="#fbf7ee" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="156" y="103" fill="#221e18" font-size="15" font-weight="600" text-anchor="middle">01 · Idea</text>
+  <text x="156" y="125" fill="#756c5b" font-size="11.5" text-anchor="middle">From a hunt or</text>
+  <text x="156" y="140" fill="#756c5b" font-size="11.5" text-anchor="middle">an intel finding</text>
+
+  <!-- C2: 02 · Sigma in git (x=324, y=72) EMPHASIS -->
+  <rect x="324" y="72" width="232" height="80" rx="10" fill="#f6ece2" stroke="#b04a2c" stroke-width="2.2"/>
+  <text x="440" y="103" fill="#b04a2c" font-size="15" font-weight="600" text-anchor="middle">02 · Sigma in git</text>
+  <text x="440" y="125" fill="#756c5b" font-size="11.5" text-anchor="middle">Vendor-agnostic</text>
+  <text x="440" y="140" fill="#756c5b" font-size="11.5" text-anchor="middle">rule, version-controlled</text>
+
+  <!-- C3: 03 · Review (x=608, y=72) -->
+  <rect x="608" y="72" width="232" height="80" rx="10" fill="#fbf7ee" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="724" y="103" fill="#221e18" font-size="15" font-weight="600" text-anchor="middle">03 · Review</text>
+  <text x="724" y="125" fill="#756c5b" font-size="11.5" text-anchor="middle">Peer review</text>
+  <text x="724" y="140" fill="#756c5b" font-size="11.5" text-anchor="middle">via pull request</text>
+
+  <!-- Row 2 -->
+
+  <!-- C4: 04 · CI test (x=40, y=268) -->
+  <rect x="40" y="268" width="232" height="80" rx="10" fill="#fbf7ee" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="156" y="299" fill="#221e18" font-size="15" font-weight="600" text-anchor="middle">04 · CI test</text>
+  <text x="156" y="321" fill="#756c5b" font-size="11.5" text-anchor="middle">Convert + unit-test</text>
+  <text x="156" y="336" fill="#756c5b" font-size="11.5" text-anchor="middle">(pySigma)</text>
+
+  <!-- C5: 05 · Validate (x=324, y=268) -->
+  <rect x="324" y="268" width="232" height="80" rx="10" fill="#fbf7ee" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="440" y="299" fill="#221e18" font-size="15" font-weight="600" text-anchor="middle">05 · Validate</text>
+  <text x="440" y="321" fill="#756c5b" font-size="11.5" text-anchor="middle">Atomic Red Team —</text>
+  <text x="440" y="336" fill="#756c5b" font-size="11.5" text-anchor="middle">does it fire?</text>
+
+  <!-- C6: 06 · Promote (x=608, y=268) -->
+  <rect x="608" y="268" width="232" height="80" rx="10" fill="#fbf7ee" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="724" y="299" fill="#221e18" font-size="15" font-weight="600" text-anchor="middle">06 · Promote</text>
+  <text x="724" y="321" fill="#756c5b" font-size="11.5" text-anchor="middle">Tune false positives ·</text>
+  <text x="724" y="336" fill="#756c5b" font-size="11.5" text-anchor="middle">retire when stale</text>
+
+  <!-- Arrows Row 1 -->
+  <!-- C1->C2 at y=112 -->
+  <line x1="276" y1="112" x2="320" y2="112" stroke="#b04a2c" stroke-width="2" marker-end="url(#bt-arrow)" fill="none"/>
+  <!-- C2->C3 at y=112 -->
+  <line x1="560" y1="112" x2="604" y2="112" stroke="#b04a2c" stroke-width="2" marker-end="url(#bt-arrow)" fill="none"/>
+
+  <!-- Serpentine C3->C4: down from C3 bottom, across, down into C4 top -->
+  <polyline points="724,152 724,210 156,210 156,264" stroke="#b04a2c" stroke-width="2" marker-end="url(#bt-arrow)" fill="none"/>
+  <text x="440" y="203" fill="#9a7b34" font-size="11" text-anchor="middle">convert</text>
+
+  <!-- Arrows Row 2 -->
+  <!-- C4->C5 at y=308 -->
+  <line x1="276" y1="308" x2="320" y2="308" stroke="#b04a2c" stroke-width="2" marker-end="url(#bt-arrow)" fill="none"/>
+  <!-- C5->C6 at y=308 -->
+  <line x1="560" y1="308" x2="604" y2="308" stroke="#b04a2c" stroke-width="2" marker-end="url(#bt-arrow)" fill="none"/>
+
+  <!-- Feedback loop: C6 top (724,268) -> up to y=40 -> left to x=440 -> down to C2 top (440,72) -->
+  <polyline points="724,268 724,40 440,40 440,68" stroke="#b04a2c" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#bt-arrow)" fill="none"/>
+  <text x="582" y="33" fill="#9a7b34" font-size="11" text-anchor="middle">iterate</text>
+
+</svg>

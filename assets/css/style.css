@@ -734,6 +734,67 @@ a { color: inherit; }
 }
 
 /* ============================================================= *
+   SERIES GROUPS (home feed, grouped by series)
+ * ============================================================= */
+.series-group { margin-top: 2.8rem; }
+.series-group:first-of-type { margin-top: 1.4rem; }
+.series-group__title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.42rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  display: inline-block;
+  margin: 0 0 0.1rem;
+}
+.series-group__hint {
+  display: inline-block;
+  margin-left: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============================================================= *
+   DIAGRAMS — bespoke SVG figures + themed Mermaid blocks
+ * ============================================================= */
+.prose .diagram {
+  margin: 2.6rem 0;
+  padding: 1.5rem 1.5rem 1.2rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.prose .diagram img,
+.prose .diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.prose .diagram figcaption {
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+.prose .mermaid {
+  margin: 2.4rem 0;
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.prose .mermaid svg { max-width: 100%; height: auto; }
+
+/* ============================================================= *
    RESPONSIVE
  * ============================================================= */
 @media (max-width: 640px) {
@@ -753,5 +814,8 @@ a { color: inherit; }
 
   .post__nav { grid-template-columns: 1fr; }
   .pnav--next { text-align: left; align-items: flex-start; }
-  .writing__hint { display: none; }
+  .writing__hint, .series-group__hint { display: none; }
+
+  .prose .diagram { padding: 0.9rem 0.9rem 0.7rem; }
+  .prose .mermaid { padding: 0.9rem; }
 }

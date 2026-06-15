@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" font-family="'IBM Plex Mono','SFMono-Regular',ui-monospace,monospace" role="img" aria-label="Threat Hunting: PEAK Loop and Pyramid of Pain">
+  <defs>
+    <marker id="bt-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b04a2c"/>
+    </marker>
+  </defs>
+
+  <!-- Title chip -->
+  <text x="40" y="34" fill="#b04a2c" font-size="12.5" font-weight="600" letter-spacing="2.4">THREAT HUNTING</text>
+  <line x1="40" y1="46" x2="840" y2="46" stroke="#e0d4bf" stroke-width="1.5"/>
+
+  <!-- ===== LEFT PANEL: PEAK Loop ===== -->
+
+  <!-- Prepare card (normal) -->
+  <rect x="60" y="92" width="300" height="70" rx="10" fill="#fbf7ee" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="210" y="122" text-anchor="middle" fill="#221e18" font-size="14.5" font-weight="600">Prepare</text>
+  <text x="210" y="141" text-anchor="middle" fill="#756c5b" font-size="11.5">Pick a hypothesis · scope · data</text>
+
+  <!-- Arrow: Prepare -> Execute -->
+  <line x1="210" y1="162" x2="210" y2="205" stroke="#b04a2c" stroke-width="2" marker-end="url(#bt-arrow)" fill="none"/>
+
+  <!-- Execute card (normal) -->
+  <rect x="60" y="212" width="300" height="70" rx="10" fill="#fbf7ee" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="210" y="242" text-anchor="middle" fill="#221e18" font-size="14.5" font-weight="600">Execute</text>
+  <text x="210" y="261" text-anchor="middle" fill="#756c5b" font-size="11.5">Gather + analyze telemetry</text>
+
+  <!-- Arrow: Execute -> Act -->
+  <line x1="210" y1="282" x2="210" y2="325" stroke="#b04a2c" stroke-width="2" marker-end="url(#bt-arrow)" fill="none"/>
+
+  <!-- Act with Knowledge card (EMPHASIS) -->
+  <rect x="60" y="332" width="300" height="70" rx="10" fill="#f6ece2" stroke="#b04a2c" stroke-width="2.2"/>
+  <text x="210" y="362" text-anchor="middle" fill="#b04a2c" font-size="14.5" font-weight="600">Act with Knowledge</text>
+  <text x="210" y="381" text-anchor="middle" fill="#756c5b" font-size="11.5">Document · build detections · refine</text>
+
+  <!-- Curved return path: left side of Act back up to left side of Prepare -->
+  <!-- From left-mid of Act (x=60, y=367) bow out to x=28, back to left-mid of Prepare (x=60, y=127) -->
+  <path d="M60,367 C28,367 28,127 60,127" stroke="#b04a2c" stroke-width="2" fill="none" marker-end="url(#bt-arrow)"/>
+  <!-- Annotation: "refine & repeat" rotated along the return path -->
+  <text x="20" y="250" text-anchor="middle" fill="#9a7b34" font-size="10.5" transform="rotate(-90,20,250)">refine &amp; repeat</text>
+
+  <!-- Sub-label under left panel -->
+  <text x="210" y="428" text-anchor="middle" fill="#756c5b" font-size="11">PEAK = Prepare · Execute · Act with Knowledge</text>
+
+  <!-- ===== RIGHT PANEL: Pyramid of Pain ===== -->
+
+  <!-- Panel sub-title chip -->
+  <text x="476" y="72" fill="#9a7b34" font-size="11" letter-spacing="1.5">PYRAMID OF PAIN</text>
+
+  <!-- Pyramid bars (i=0 top narrowest, i=5 bottom widest) -->
+
+  <!-- i=0: TTPs (EMPHASIS) width=120, x=610, y=92 -->
+  <rect x="610" y="92" width="120" height="44" rx="4" fill="#e7c4b7" stroke="#b04a2c" stroke-width="2"/>
+  <text x="670" y="119" text-anchor="middle" fill="#8c3619" font-size="11.5" font-weight="600">TTPs</text>
+  <!-- "Tough!" tag right of i=0 -->
+  <text x="736" y="119" fill="#b04a2c" font-size="10">Tough!</text>
+
+  <!-- i=1: Tools width=164, x=588, y=140 -->
+  <rect x="588" y="140" width="164" height="44" rx="4" fill="#f3ead9" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="670" y="167" text-anchor="middle" fill="#221e18" font-size="11.5">Tools</text>
+
+  <!-- i=2: Network / Host Artifacts width=208, x=566, y=188 -->
+  <rect x="566" y="188" width="208" height="44" rx="4" fill="#f3ead9" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="670" y="215" text-anchor="middle" fill="#221e18" font-size="11.5">Network / Host Artifacts</text>
+
+  <!-- i=3: Domain Names width=252, x=544, y=236 -->
+  <rect x="544" y="236" width="252" height="44" rx="4" fill="#f3ead9" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="670" y="263" text-anchor="middle" fill="#221e18" font-size="11.5">Domain Names</text>
+
+  <!-- i=4: IP Addresses width=296, x=522, y=284 -->
+  <rect x="522" y="284" width="296" height="44" rx="4" fill="#f3ead9" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="670" y="311" text-anchor="middle" fill="#221e18" font-size="11.5">IP Addresses</text>
+
+  <!-- i=5: Hash Values width=340, x=500, y=332 -->
+  <rect x="500" y="332" width="340" height="44" rx="4" fill="#f3ead9" stroke="#c4b79f" stroke-width="1.5"/>
+  <text x="670" y="359" text-anchor="middle" fill="#221e18" font-size="11.5">Hash Values</text>
+  <!-- "Trivial" tag right of i=5 -->
+  <text x="846" y="359" fill="#9a7b34" font-size="10">Trivial</text>
+
+  <!-- Vertical arrow on left of pyramid: x=476, from y=372 up to y=100 -->
+  <line x1="476" y1="372" x2="476" y2="100" stroke="#b04a2c" stroke-width="2" marker-end="url(#bt-arrow)" fill="none"/>
+  <!-- Rotated annotation "more pain to the adversary" -->
+  <text x="462" y="240" text-anchor="middle" fill="#9a7b34" font-size="10.5" transform="rotate(-90,462,240)">more pain to the adversary</text>
+
+</svg>

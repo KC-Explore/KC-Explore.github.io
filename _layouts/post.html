@@ -2,7 +2,7 @@
 layout: default
 body_class: page-post
 ---
-{% assign ordered = site.posts | sort: 'part' %}
+{% assign ordered = site.posts | where: 'series', page.series | sort: 'part' %}
 {% assign curr = 0 %}
 {% for p in ordered %}
   {% if p.url == page.url %}{% assign curr = forloop.index0 %}{% endif %}

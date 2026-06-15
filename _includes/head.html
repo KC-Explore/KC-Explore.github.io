@@ -12,4 +12,38 @@
 
   {% seo %}
   {% feed_meta %}
+
+  {% if page.mermaid %}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'base',
+      themeVariables: {
+        background: '#f4eee3',
+        primaryColor: '#f8f3ea',
+        primaryTextColor: '#221e18',
+        primaryBorderColor: '#b04a2c',
+        secondaryColor: '#efe7d8',
+        tertiaryColor: '#f8f3ea',
+        lineColor: '#8c3619',
+        textColor: '#221e18',
+        fontFamily: 'IBM Plex Mono, ui-monospace, monospace',
+        fontSize: '14px'
+      }
+    });
+    // Kramdown+Rouge render ```mermaid as <code class="language-mermaid">, which
+    // Mermaid's startOnLoad won't pick up. Convert those blocks to .mermaid divs.
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('code.language-mermaid').forEach((code) => {
+        const fig = document.createElement('div');
+        fig.className = 'mermaid';
+        fig.textContent = code.textContent;
+        const wrapper = code.closest('.highlighter-rouge') || code.closest('pre') || code;
+        wrapper.replaceWith(fig);
+      });
+      mermaid.run();
+    });
+  </script>
+  {% endif %}
 </head>
