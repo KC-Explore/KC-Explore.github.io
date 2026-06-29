@@ -2,7 +2,11 @@
 layout: default
 body_class: page-post
 ---
-{% assign ordered = site.posts | where: 'series', page.series | sort: 'part' %}
+{% if page.part %}
+  {% assign ordered = site.posts | where: 'series', page.series | sort: 'part' %}
+{% else %}
+  {% assign ordered = site.posts | where: 'series', page.series | sort: 'date' %}
+{% endif %}
 {% assign curr = 0 %}
 {% for p in ordered %}
   {% if p.url == page.url %}{% assign curr = forloop.index0 %}{% endif %}
@@ -15,15 +19,17 @@ body_class: page-post
 
 <article class="post">
   <header class="post__header">
-    <p class="kicker">{{ page.series }} · Part 0{{ page.part }}</p>
+    <p class="kicker">{{ page.series }}{% if page.part %} · Part 0{{ page.part }}{% elsif page.dispatch_kind %} · {{ page.dispatch_kind | replace: '-', ' ' }}{% endif %}</p>
     <h1 class="post__title">{{ page.title }}</h1>
     {% if page.description %}<p class="post__lede">{{ page.description }}</p>{% endif %}
     <div class="post__meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
       <span class="dot" aria-hidden="true">/</span>
       <span>{{ minutes }} min read</span>
+      {% if page.part %}
       <span class="dot" aria-hidden="true">/</span>
       <span class="post__progress" aria-hidden="true">0{{ page.part }}&thinsp;—&thinsp;0{{ total | minus: 1 }}</span>
+      {% endif %}
     </div>
     <span class="post__rule" aria-hidden="true"></span>
   </header>

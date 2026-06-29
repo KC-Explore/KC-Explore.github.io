@@ -53,4 +53,32 @@ body_class: page-home
   </div>
   {% endif %}
   {% endfor %}
+
+  {% assign dispatches = site.posts | where: "series", "Dispatches" | sort: "date" | reverse %}
+  {% if dispatches.size > 0 %}
+  <div class="series-group">
+    <h3 class="series-group__title">Dispatches</h3>
+    <span class="series-group__hint">field reports &amp; topical · latest first</span>
+    <ol class="feed">
+      {% for post in dispatches %}
+      {% assign words = post.content | number_of_words %}
+      {% assign minutes = words | divided_by: 200 | plus: 1 %}
+      <li class="feed__item" style="--i: {{ forloop.index0 }}">
+        <a class="feed__link" href="{{ post.url | relative_url }}">
+          <span class="feed__num" aria-hidden="true">{{ post.date | date: "%b" | upcase }}</span>
+          <span class="feed__body">
+            <span class="feed__title">{{ post.title }}</span>
+            <span class="feed__desc">{{ post.description }}</span>
+          </span>
+          <span class="feed__meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <span class="feed__mins">{{ minutes }} min read</span>
+          </span>
+          <span class="feed__arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+  {% endif %}
 </section>
